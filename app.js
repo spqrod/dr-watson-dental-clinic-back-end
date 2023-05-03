@@ -1,13 +1,13 @@
-// import express from "express";
-// import cors from "cors";
-// import nodemailer from "nodemailer";
-// import validator from "validator";
+import express from "express";
+import cors from "cors";
+import nodemailer from "nodemailer";
+import validator from "validator";
 // import * as dotenv from "dotenv";
 
-const express =  require("express");
-const cors =  require("cors");
-const nodemailer =  require("nodemailer");
-const validator =  require("validator");
+// const express =  require("express");
+// const cors =  require("cors");
+// const nodemailer =  require("nodemailer");
+// const validator =  require("validator");
 
 const app = express();
 const port = 8080;
