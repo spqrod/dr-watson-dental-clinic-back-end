@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "./static/css/main.f73507cc.css",
+    "main.js": "./static/js/main.4bbea0a4.js",
+    "static/media/smiling-woman-2.png": "./static/media/smiling-woman-2.83f420cdab0f125e707c.png",
+    "static/media/dentists-at-work.jpg": "./static/media/dentists-at-work.19412eee88e27f07fe1b.jpg",
+    "static/media/happy-patient.jpg": "./static/media/happy-patient.d6804fae417d069bbf76.jpg",
+    "static/media/dr-watson-with-patient.jpg": "./static/media/dr-watson-with-patient.378621b41d6d795de369.jpg",
+    "static/media/nhima.jpeg": "./static/media/nhima.563d508a41e37a722b66.jpeg",
+    "static/media/memory.jpg": "./static/media/memory.5d9b22e4a574beb24bb7.jpg",
+    "static/media/logo.jpg": "./static/media/logo.7bc7787cbe36f0da2eef.jpg",
+    "static/media/instagram.png": "./static/media/instagram.a954769a311227c753e1.png",
+    "static/media/whatsapp.png": "./static/media/whatsapp.45a68aee04cd910dbea7.png",
+    "static/media/clock.png": "./static/media/clock.dc550a9f52c407d30fa5.png",
+    "static/media/star.svg": "./static/media/star.a6466e075aa1d9ae9d8131f79cb6e505.svg",
+    "static/media/ggl.svg": "./static/media/ggl.aef04a772a95af786c55df25241e919d.svg",
+    "index.html": "./index.html",
+    "main.f73507cc.css.map": "./static/css/main.f73507cc.css.map",
+    "main.4bbea0a4.js.map": "./static/js/main.4bbea0a4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f73507cc.css",
+    "static/js/main.4bbea0a4.js"
+  ]
+}
