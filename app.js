@@ -1,20 +1,28 @@
-import express from "express";
-import cors from "cors";
-import nodemailer from "nodemailer";
-import validator from "validator";
-import * as dotenv from "dotenv";
+// import express from "express";
+// import cors from "cors";
+// import nodemailer from "nodemailer";
+// import validator from "validator";
+// import * as dotenv from "dotenv";
+
+const express =  require("express");
+const cors =  require("cors");
+const nodemailer =  require("nodemailer");
+const validator =  require("validator");
 
 const app = express();
 const port = 8080;
 
-dotenv.config();
+// dotenv.config();
 
 app.use(express.static('build'));
 app.use(cors());
 app.use(express.json());
 
-const emailUsername = process.env.EMAILUSERNAME;
-const emailPassword = process.env.EMAILPASSWORD;
+// const emailUsername = process.env.EMAILUSERNAME;
+// const emailPassword = process.env.EMAILPASSWORD;
+
+const emailUsername = "123";
+const emailPassword = "123";
 
 const contactEmail = nodemailer.createTransport({
     host: "mail.privateemail.com",
