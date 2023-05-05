@@ -55,6 +55,15 @@ const contactEmail = nodemailer.createTransport({
 
 app.post("/appointment", (req, res) => {
 
+    const token = req.body.token;
+    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
+    const options = {
+        method: "GET"
+    };
+
+    fetch(url, options)
+    .then((response) => res.send(response.body.success));
+
     const date = getSanitizedString(req.body.date);
     const time = getSanitizedString(req.body.time);
     const name = getSanitizedString(req.body.name) || "Unknown name";
@@ -111,11 +120,6 @@ app.post("/contact", (req, res) => {
             res.json({status: "Message sent"});
         }
     });
-});
-
-app.get("/api/site-key", (req, res) => {
-    const siteKey = process.env.TEST2;
-    res.json({siteKey});
 });
 
 
