@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.f73507cc.css",
-    "main.js": "./static/js/main.6873d8e8.js",
+    "main.js": "./static/js/main.81a79939.js",
     "static/media/smiling-woman-2.png": "./static/media/smiling-woman-2.83f420cdab0f125e707c.png",
     "static/media/dentists-at-work.jpg": "./static/media/dentists-at-work.19412eee88e27f07fe1b.jpg",
     "static/media/happy-patient.jpg": "./static/media/happy-patient.d6804fae417d069bbf76.jpg",
@@ -16,10 +16,10 @@
     "static/media/ggl.svg": "./static/media/ggl.aef04a772a95af786c55df25241e919d.svg",
     "index.html": "./index.html",
     "main.f73507cc.css.map": "./static/css/main.f73507cc.css.map",
-    "main.6873d8e8.js.map": "./static/js/main.6873d8e8.js.map"
+    "main.81a79939.js.map": "./static/js/main.81a79939.js.map"
   },
   "entrypoints": [
     "static/css/main.f73507cc.css",
-    "static/js/main.6873d8e8.js"
+    "static/js/main.81a79939.js"
   ]
 }
