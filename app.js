@@ -11,11 +11,12 @@ const cors =  require("cors");
 const nodemailer =  require("nodemailer");
 const validator =  require("validator");
 const helmet = require("helmet");
+const dotenv = require("dotenv");
 
 const app = express();
 const port = process.env.PORT || 8080;
 
-// dotenv.config();
+dotenv.config();
 
 app.use(express.static('build'));
 app.use(cors());
@@ -25,10 +26,6 @@ app.use(helmet());
 const emailUsername = process.env.EMAILUSERNAME;
 const emailPassword = process.env.EMAILPASSWORD;
 const emailHost = process.env.EMAILHOST;
-
-// const emailUsername = "123";
-// const emailPassword = "123";
-// const emailHost = "123";
 
 const contactEmail = nodemailer.createTransport({
     host: emailHost,
@@ -115,6 +112,12 @@ app.post("/contact", (req, res) => {
         }
     });
 });
+
+app.get("/api/site-key", (req, res) => {
+    const siteKey = process.env.TEST2;
+    res.json({siteKey});
+});
+
 
 app.listen(port, () => console.log(`Listening to port ${port}`));
 
