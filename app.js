@@ -60,18 +60,23 @@ app.post("/appointment", async (req, res) => {
     const token = req.body.token;
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
 
-    try {
+    const response = await fetch(url, {method: "POST"});
+    const result = await response.json();
+    res.json(result);
+
+
+    // try {
         // const response = await axios.post(url);
-        const response = await fetch(url, {method: "POST"});
-        const result = await response.json();
-        if (result.data.success) {
-            res.json({status: "success"});
-        } else {
-            res.json({status: "failure"});
-        }
-    } catch (error) {
-        res.json({status: error});
-    }
+        // const response = fetch(url, {method: "POST"});
+    //     const result = await response.json();
+    //     if (result.data.success) {
+    //         res.json({status: "success"});
+    //     } else {
+    //         res.json({status: "failure"});
+    //     }
+    // } catch (error) {
+    //     res.json({status: error});
+    // }
 
 
 
