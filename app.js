@@ -63,7 +63,8 @@ app.post("/appointment", async (req, res) => {
     try {
         // const response = await axios.post(url);
         const response = await fetch(url, {method: "POST"});
-        if (response.data.success) {
+        const result = await response.json();
+        if (result.data.success) {
             res.json({status: "success"});
         } else {
             res.json({status: "failure"});
