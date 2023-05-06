@@ -69,7 +69,7 @@ app.post("/appointment", (req, res) => {
     //     // res.json({result: "123"});
     // }
 
-    getGoogle();
+    // getGoogle();
 
     const date = getSanitizedString(req.body.date);
     const time = getSanitizedString(req.body.time);
