@@ -101,7 +101,7 @@ app.post("/appointment", async (req, res) => {
 
 app.post("/contact", async (req, res) => {
 
-    const token = req.body.token;
+    const token = getSanitizedString(req.body.token);
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
 
     try {
