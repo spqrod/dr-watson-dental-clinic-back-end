@@ -6,14 +6,13 @@
 
 // import * as dotenv from "dotenv";
 
-const express =  require("express");
-const cors =  require("cors");
-const nodemailer =  require("nodemailer");
-const validator =  require("validator");
+const express = require("express");
+const cors = require("cors");
+const nodemailer = require("nodemailer");
+const validator = require("validator");
 const helmet = require("helmet");
 const dotenv = require("dotenv");
 const axios = require("axios");
-const fetch = require("node-fetch");
 
 const app = express();
 const port = process.env.PORT || 8080;
@@ -61,23 +60,17 @@ app.post("/appointment", async (req, res) => {
     const token = req.body.token;
     const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
 
-    const response = await fetch(url, {method: "POST"});
-    const result = await response.json();
-    res.json(result);
-
-
-    // try {
-        // const response = await axios.post(url);
-        // const response = fetch(url, {method: "POST"});
-    //     const result = await response.json();
-    //     if (result.data.success) {
-    //         res.json({status: "success"});
-    //     } else {
-    //         res.json({status: "failure"});
-    //     }
-    // } catch (error) {
-    //     res.json({status: error});
-    // }
+    try {
+        const response = await axios.post(url);
+        // const result = await response.json();
+        if (response.data.success) {
+            res.json({status: "success"});
+        } else {
+            res.json({status: "failure"});
+        }
+    } catch (error) {
+        res.json({status: "error"});
+    }
 
 
 
