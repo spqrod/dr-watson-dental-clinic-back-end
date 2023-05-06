@@ -13,6 +13,7 @@ const validator =  require("validator");
 const helmet = require("helmet");
 const dotenv = require("dotenv");
 const axios = require("axios");
+const fetch = require("node-fetch");
 
 const app = express();
 const port = process.env.PORT || 8080;
