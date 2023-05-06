@@ -62,45 +62,41 @@ app.post("/appointment", async (req, res) => {
 
     try {
         const response = await axios.post(url);
-        // const result = await response.json();
         if (response.data.success) {
-            res.json({status: "success"});
+            const date = getSanitizedString(req.body.date);
+            const time = getSanitizedString(req.body.time);
+            const name = getSanitizedString(req.body.name) || "Unknown name";
+            const phone = getSanitizedString(req.body.phone);
+            const message = getSanitizedString(req.body.message);
+            const email = {
+                from: `"${name}" info@drwatsondental.com`,
+                to: "info@drwatsondental.com",
+                subject: "New Appointment",
+                html: `
+                    <h1>This is a new appointment from our website.</h1>
+                    <p>Contact the patient to confirm the appointment or suggest another time.</p>
+                    <p>Date: ${date}.</p>
+                    <p>Time: ${time}.</p>
+                    <p>Name: ${name}.</p>
+                    <p>Phone: ${phone}.</p>
+                    <p>Message: ${message}.</p>
+                    <p><em>This is an automated message. Do not reply directly in the email.</em></p>
+                `
+            };
+            contactEmail.sendMail(email, (error) => {
+                if (error) {
+                    res.json({status: "ERROR WHEN SENDING MESSAGE"});
+                } else {
+                    res.json({status: "Message sent"});
+                }
+            });
         } else {
-            res.json({status: "failure"});
+            res.json({status: "Failure to pass Google reCaptcha test"});
         }
     } catch (error) {
-        res.json({status: "error"});
+        res.json({status: "Google reCaptcha Error"});
     }
 
-
-
-    // const date = getSanitizedString(req.body.date);
-    // const time = getSanitizedString(req.body.time);
-    // const name = getSanitizedString(req.body.name) || "Unknown name";
-    // const phone = getSanitizedString(req.body.phone);
-    // const message = getSanitizedString(req.body.message);
-    // const email = {
-    //     from: `"${name}" info@drwatsondental.com`,
-    //     to: "info@drwatsondental.com",
-    //     subject: "New Appointment",
-    //     html: `
-    //         <h1>This is a new appointment from our website.</h1>
-    //         <p>Contact the patient to confirm the appointment or suggest another time.</p>
-    //         <p>Date: ${date}.</p>
-    //         <p>Time: ${time}.</p>
-    //         <p>Name: ${name}.</p>
-    //         <p>Phone: ${phone}.</p>
-    //         <p>Message: ${message}.</p>
-    //         <p><em>This is an automated message. Do not reply directly in the email.</em></p>
-    //     `
-    // };
-    // contactEmail.sendMail(email, (error) => {
-    //     if (error) {
-    //         res.json({status: "ERROR WHEN SENDING MESSAGE"});
-    //     } else {
-    //         res.json({status: "Message sent"});
-    //     }
-    // });
 });
 
 app.post("/contact", (req, res) => {
