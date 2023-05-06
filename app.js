@@ -55,8 +55,8 @@ const contactEmail = nodemailer.createTransport({
 
 app.post("/appointment", (req, res) => {
 
-    // const token = req.body.token;
-    // const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
+    const token = "123asdasdasd12easd";
+    const url = `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.GOOGLE_CAPTCHA_SECRET_KEY}&response=${token}`;
     // const options = {
     //     method: "GET"
     // };
@@ -64,10 +64,12 @@ app.post("/appointment", (req, res) => {
     // async function getGoogle() {
     //     const response = await fetch(url, options);
     //     const result = await response.json();
-    //     res.json({result: "123"});
+    //     console.log("test");
+    //     console.log(result);
+    //     // res.json({result: "123"});
     // }
 
-    // getGoogle();
+    getGoogle();
 
     const date = getSanitizedString(req.body.date);
     const time = getSanitizedString(req.body.time);
